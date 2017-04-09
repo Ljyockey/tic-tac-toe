@@ -4,6 +4,12 @@
 	vertical-align: top;
 }
 
+.square p {
+	font-size: 5em;
+	text-align: center;
+	vertical-align: middle;
+}
+
 .row-1, .row-2, .row-3 {
 	display: inline-block;
 }
