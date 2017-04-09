@@ -63,6 +63,7 @@ function restart() {
 	$('.restart').on('click', 'button', function(e) {
 		e.preventDefault();
 		$('.square').empty();
+		$('.square').removeClass('winner');
 		$('.tie').hide();
 		counter = 0;
 	})
