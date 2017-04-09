@@ -14,18 +14,22 @@ function displayMove() {
 			}	
 		counter++;		
 		getClassArray(moveClass);
+		//checks if game is a tie once all moves have been made
 		if (counter === 9) {
 			declareTie();
 		}
 		});
 	}
 
+//turns the class of box that was selected from string to array
 function getClassArray(string) {
 	var classArray = string.split(' ');
+	//removes square class, keeping it would cause other functions to be buggy
 	classArray.splice(0, 1);
 	getRows(classArray);
 	}
 
+//collects other divs with same class as the one that was selected
 function getRows(token) {
 	token.forEach(function(item) {
 	var rowItems = document.getElementsByClassName(item);
@@ -33,8 +37,10 @@ function getRows(token) {
 	});
 }
 
+
 function validateWin(validator, move, targetClass) {
 	var pointCounter = 0;
+	//checks if all divs in same row have same innerText (x or O)
 	for (var i = 0; i < validator.length; i++) {
 		if (validator[i].innerText.trim() === move) {
 			pointCounter++;
@@ -54,6 +60,7 @@ function declareWinner(c) {
 	}
 
 function declareTie() {
+	//checks if there has been a winner
 	if (!$('.square').hasClass('winner')) {
 		$('.tie').show();
 		}
@@ -62,6 +69,7 @@ function declareTie() {
 function restart() {
 	$('.restart').on('click', 'button', function(e) {
 		e.preventDefault();
+		//clears all game data
 		$('.square').empty();
 		$('.square').removeClass('winner');
 		$('.tie').hide();
