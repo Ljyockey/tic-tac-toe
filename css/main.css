@@ -1,13 +1,24 @@
+body {
+	color: azure;
+	background-color: #003459;
+}
+
+.row {
+	text-align: center;
+}
+
 .square {
-	height: 200px;
-	width: 200px;
+	height: 100px;
+	width: 100px;
 	vertical-align: top;
 }
 
 .square p {
-	font-size: 5em;
+	font-size: 4em;
 	text-align: center;
 	vertical-align: middle;
+	position: relative;
+	bottom: 50px;
 }
 
 .row-1, .row-2, .row-3 {
@@ -15,17 +26,59 @@
 }
 
 .row-1, .row-2 {
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid azure;
 }
 
 .col-1, .col-2 {
-	border-right: 2px solid black;
+	border-right: 2px solid azure;
 }
 
 .winner p {
-	color: green;
+	color: #0CFF41;
 }
 
 .tie {
 	display: none;
+	font-size: 2em;
+}
+
+.tie p {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.restart {
+	text-align: center;
+}
+
+button {
+	background-color: azure;
+	margin-top: 50px;
+	font-size: 1em;
+}
+
+button:hover, button:focus {
+	background-color: #0CFF41;
+	outline: none;
+}
+
+@media only screen and (min-width: 640px) {
+
+	.square {
+		height: 200px;
+		width: 200px;
+		}
+
+	.square p {
+		font-size: 100px;
+		bottom: 50px;
+		}
+
+	.tie {
+		font-size: 3em;
+	}	
+
+	.tie p {
+		margin-top: 20px;
+	}
 }
