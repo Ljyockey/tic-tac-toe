@@ -7,14 +7,17 @@ function displayMove() {
 	if (counter % 2 === 0) {	
 		$(this).html('<p class="x">X</p>');
 		currentMove = 'X';
-		}
+		} 
 	else {
 		$(this).html('<p class="o">O</p>');
 		currentMove = 'O';
-		}
+		}	
 	counter++;		
 	getClassArray(moveClass);
-})
+	if (counter === 9) {
+		declareTie();
+	}
+});
 }
 
 function getClassArray(string) {
@@ -27,7 +30,7 @@ function getRows(token) {
 	token.forEach(function(item) {
 	var rowItems = document.getElementsByClassName(item);
 	validateWin(rowItems, currentMove, item);
-	})
+	});
 }
 
 function validateWin(validator, move, targetClass) {
@@ -47,9 +50,25 @@ function declareWinner(c) {
 		if ($(this).hasClass(c)) {
 			$(this).addClass('winner');
 		}
+	});
+}
+
+function declareTie() {
+	if (!$('.square').hasClass('winner')) {
+	$('.tie').show();
+}
+}
+
+function restart() {
+	$('.restart').on('click', 'button', function(e) {
+		e.preventDefault();
+		$('.square').empty();
+		$('.tie').hide();
+		counter = 0;
 	})
 }
 
 $(function() {
 	displayMove();
-})
+	restart();
+});
