@@ -25,3 +25,7 @@
 .winner p {
 	color: green;
 }
+
+.tie {
+	display: none;
+}
