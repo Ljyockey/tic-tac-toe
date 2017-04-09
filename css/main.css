@@ -1,0 +1,17 @@
+.square {
+	height: 200px;
+	width: 200px;
+	vertical-align: top;
+}
+
+.row-1, .row-2, .row-3 {
+	display: inline-block;
+}
+
+.row-1, .row-2 {
+	border-bottom: 2px solid black;
+}
+
+.col-1, .col-2 {
+	border-right: 2px solid black;
+}
