@@ -67,7 +67,7 @@ function declareWinner(c) {
 function declareTie() {
 	//checks if there has been a winner
 	if (!$('.square').hasClass('winner')) {
-		$('.tie').show();
+		$('#tie').show();
 		$('.overlay').show();
 	}
 }
@@ -78,7 +78,7 @@ function restart() {
 		//clears all game data
 		$('.square').empty();
 		$('.square').removeClass('winner');
-		$('.tie').hide();
+		$('#tie').hide();
 		$('.overlay').hide();
 		counter = 0;
 	})
