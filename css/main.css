@@ -3,6 +3,20 @@ body {
 	background-color: #003459;
 }
 
+.board-1 {
+	position: relative;
+}
+
+.overlay {
+	display: none;
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
 .row {
 	text-align: center;
 }
@@ -63,6 +77,11 @@ button:hover, button:focus {
 }
 
 @media only screen and (min-width: 640px) {
+
+	.overlay {
+		width: 600px;
+		height: 600px;
+	}
 
 	.square {
 		height: 200px;
