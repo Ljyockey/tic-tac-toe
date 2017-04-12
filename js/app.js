@@ -3,23 +3,27 @@ var currentMove = '';
 
 function displayMove() {
 	$('.row').on('click', '.square', function() {
-		var moveClass = this.className;	
-		if (counter % 2 === 0) {	
-			$(this).html('<p class="x">X</p>');
-			currentMove = 'X';
-			} 
-		else {
-			$(this).html('<p class="o">O</p>');
-			currentMove = 'O';
-			}	
-		counter++;		
-		getClassArray(moveClass);
-		//checks if game is a tie once all moves have been made
-		if (counter === 9) {
-			declareTie();
+		var noRepeatMoves = $(this).has('p');
+		//if statement ensures there isn't already a move on this square
+		if (noRepeatMoves.length === 0) {
+			var moveClass = this.className;	
+			if (counter % 2 === 0) {	
+				$(this).html('<p class="x">X</p>');
+				currentMove = 'X';
+				} 
+			else {
+				$(this).html('<p class="o">O</p>');
+				currentMove = 'O';
+				}	
+			counter++;		
+			getClassArray(moveClass);
+			//checks if game is a tie once all moves have been made
+			if (counter === 9) {
+				declareTie();
+			}
 		}
-		});
-	}
+	});
+}
 
 //turns the class of box that was selected from string to array
 function getClassArray(string) {
@@ -27,7 +31,7 @@ function getClassArray(string) {
 	//removes square class, keeping it would cause other functions to be buggy
 	classArray.splice(0, 1);
 	getRows(classArray);
-	}
+}
 
 //collects other divs with same class as the one that was selected
 function getRows(token) {
@@ -44,27 +48,29 @@ function validateWin(validator, move, targetClass) {
 	for (var i = 0; i < validator.length; i++) {
 		if (validator[i].innerText.trim() === move) {
 			pointCounter++;
-			}
-		}
-	if (pointCounter === 3) {
-		declareWinner(targetClass);
 		}
 	}
+	if (pointCounter === 3) {
+		declareWinner(targetClass);
+	}
+}
 
 function declareWinner(c) {
 	$('.square').each(function() {
 		if ($(this).hasClass(c)) {
 			$(this).addClass('winner');
+			$('.overlay').show();
 		}
-		});
-	}
+	});
+}
 
 function declareTie() {
 	//checks if there has been a winner
 	if (!$('.square').hasClass('winner')) {
 		$('.tie').show();
-		}
+		$('.overlay').show();
 	}
+}
 
 function restart() {
 	$('.restart').on('click', 'button', function(e) {
@@ -73,6 +79,7 @@ function restart() {
 		$('.square').empty();
 		$('.square').removeClass('winner');
 		$('.tie').hide();
+		$('.overlay').hide();
 		counter = 0;
 	})
 }
