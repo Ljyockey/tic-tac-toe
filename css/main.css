@@ -1,6 +1,7 @@
 body {
 	color: azure;
 	background-color: #003459;
+	font-family: 'Indie Flower';
 }
 
 .board-1 {
@@ -69,6 +70,7 @@ button {
 	background-color: azure;
 	margin-top: 50px;
 	font-size: 1em;
+	font-family: 'Indie Flower';
 }
 
 button:hover, button:focus {
@@ -79,18 +81,18 @@ button:hover, button:focus {
 @media only screen and (min-width: 640px) {
 
 	.overlay {
-		width: 600px;
-		height: 600px;
+		width: 450px;
+		height: 450px;
 	}
 
 	.square {
-		height: 200px;
-		width: 200px;
+		height: 150px;
+		width: 150px;
 		}
 
 	.square p {
 		font-size: 100px;
-		bottom: 50px;
+		bottom: 90px;
 		}
 
 	.tie {
