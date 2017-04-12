@@ -53,13 +53,15 @@ body {
 }
 
 .tie {
-	display: none;
+	height: 150px;
 	font-size: 2em;
 }
 
-.tie p {
-	margin-top: 50px;
+#tie {
+	display: none;
+	margin-top: 0;
 	text-align: center;
+	margin-bottom: 0;
 }
 
 .restart {
@@ -99,7 +101,7 @@ button:hover, button:focus {
 		font-size: 3em;
 	}	
 
-	.tie p {
+	#tie {
 		margin-top: 20px;
 	}
 }
