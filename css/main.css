@@ -4,6 +4,23 @@ body {
 	font-family: 'Indie Flower';
 }
 
+h1 {
+	display: inline;
+}
+
+header p {
+	display: inline;
+}
+
+header a {
+	color: white;
+}
+
+header a:focus, header a:hover {
+	cursor: pointer;
+	text-decoration: none;
+}
+
 .tie {
 	height: 50px;
 	font-size: 2em;
